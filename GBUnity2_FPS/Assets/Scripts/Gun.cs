@@ -49,6 +49,8 @@ public class Gun : BaseWeapon
     {
         if (_bulletsInMagazine > 0 && _fire)
         {
+            _muzzleFlash.Play();
+
             _bulletsInMagazine--;
 
             #region FirePrefab
@@ -81,6 +83,9 @@ public class Gun : BaseWeapon
                 {
                     SetDamage(hit.collider.GetComponent<ISetDamage>());
                 }
+                GameObject TempHit = Instantiate(_hitParticle, hit.point, Quaternion.LookRotation(hit.normal));
+                TempHit.transform.parent = hit.transform;
+                Destroy(TempHit, 0.5f);
             }
 
             if (_bulletsInMagazine == 0 && _bulletsOutMagazine > 0)
