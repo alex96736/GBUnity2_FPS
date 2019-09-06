@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -42,6 +43,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        // добавляем свои переменные
+
+        //// текущее здоровье игрока
+        //[SerializeField] private int _healthPlayer;
+        //// максимальное здоровье игрока
+        //private int _healthPlayerBase; 
+
+        //// Вывод информации о здоровье
+        //[SerializeField] protected Text UIText_Health;
+
         // Use this for initialization
         private void Start()
         {
@@ -55,6 +66,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            //_healthPlayerBase = 100;
+            //_healthPlayer = _healthPlayerBase;
         }
 
 
@@ -81,6 +94,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+            //UIText_Health.text = _healthPlayer.ToString();
         }
 
 
