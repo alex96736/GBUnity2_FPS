@@ -7,6 +7,9 @@ TagManager:
   - GunT
   - CrossHair
   - Enemy
+  - Waypoint
+  - HealthKit
+  - Mine
   layers:
   - Default
   - TransparentFX
